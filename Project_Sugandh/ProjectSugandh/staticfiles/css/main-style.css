@@ -1,0 +1,294 @@
+.btn-chekbox.main{background-color: green !important;border-color: green !important;color: #fff;}
+.save-information .form-group {margin-bottom:10px;}
+.toggle-bold{padding: 6px 0 0 0;display: inline-block;font-weight: normal;}
+.dataTables_wrapper .dataTable .btn{padding: 0.47rem 0.6rem;}
+.m-b-20{margin-bottom: 20px;}
+.padding-0{
+  padding: 0;
+}
+.font-w-bold {
+    font-weight: 700;
+}
+.product-data .order-summary-span li.total-amount {
+    padding-top: 15px;
+    margin-top: 10px;
+}
+/* Dropzone */
+.dropzone {
+  border: 1px solid #f3f3f3;
+  cursor: pointer;
+  height: 200px;
+}
+table tr td .form-group{
+  margin-bottom: 0;
+}
+.dropdown.pull-right{
+  position: absolute;
+  right: 0;
+  top: 0; 
+}
+.admin-logo img{width: 60px;}
+.dropzone .dz-message {
+  text-align: center;
+  width: 100%;
+}
+.pull-left{
+  float: left;
+}
+.pull-right{
+  float: right;
+}
+.navbar-menu-wrapper .admin-logo{
+  width:calc(100% - 220px) ;
+  text-align: center;
+}
+
+.navbar-nav{
+  width: 200px;
+}
+.p-t-25{
+  padding-top: 25px;
+}
+.dropzone .dz-message span {
+  font-size: .8125rem;
+  color: #001737;
+}
+
+.dropzone.dz-started {
+  height: auto;
+}
+
+.dropzone .dz-error-message span {
+  font-size: .625rem;
+  color: #dc3545;
+}
+
+.dropzone .dz-preview {
+  margin: .5rem;
+}
+
+.dropzone .dz-preview .dz-image img {
+  width: 40px;
+  height: 40px;
+}
+
+.dropzone .dz-preview .dz-success-mark,
+.dropzone .dz-preview .dz-error-mark {
+  display: inline-block;
+}
+
+.dropzone .dz-preview .dz-success-mark svg,
+.dropzone .dz-preview .dz-error-mark svg {
+  width: 30px;
+  height: 30px;
+  margin-top: .5rem;
+}
+
+.dropzone .dz-preview .dz-details .dz-size,
+.dropzone .dz-preview .dz-details .dz-filename {
+  font-size: .875rem;
+}
+
+.dropzone .dz-preview + .dz-preview {
+  border-top: 1px solid #f3f3f3;
+  padding-top: .5rem;
+}
+
+
+
+.img-div img{
+  max-width: 100%;
+}
+#edit-view-popup .modal-dialog{
+  /*max-width:1000px;*/
+}
+#edit-view-popup b.btn{
+   
+}
+.img-div{
+  overflow: hidden;
+  position: relative;    margin-bottom: 20px;
+}
+.img-div .icon{
+  position: absolute;
+  bottom: -50px;
+  left:0;
+  right: 0;
+  transition: 0.5s ease-in-out;
+  margin:0 auto;
+  text-align: center;
+}
+.img-div:hover .icon{
+  bottom: 10px;
+}
+
+
+
+#trigger-upload {
+    font-size: 14px;
+    padding: 0.875rem 1.5rem;
+    background-image: none;
+    box-shadow: none;
+    color: #212529;
+    background-color: #c2cad2;
+    border-color: #c2cad2;
+}
+
+#fine-uploader-manual-trigger .qq-upload-button {
+    margin-right: 15px;
+}
+.qq-upload-button {
+    background-color: #333 !important;
+    border-color: #333 !important;
+    box-shadow: none !important;
+    padding: 0.875rem 1.5rem !important;
+    width: auto !important;
+} 
+#fine-uploader-manual-trigger .buttons {
+    width: 50%;
+}
+
+#fine-uploader-manual-trigger .qq-uploader .qq-total-progress-bar-container {
+    width: 60%;
+}
+.input-file{
+    border: 1px solid #f3f3f3;
+}
+.input-file input[type="file"]{
+    height: 2.875rem;
+    padding: 12px 22px;
+}
+.img-div button{
+      box-shadow: none !important;
+}
+
+.excel-block {
+    width: 100%;
+    float: left;
+    display: none;
+}
+.custom-tablink ul{
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.custom-tablink ul li{
+  display: inline-block;
+  list-style: none;
+  width: 33%;
+  float: left;
+  text-align: center;
+}
+.custom-tablink ul li  .tab-btn{
+      display: block;
+    width: auto;
+    margin: 0 0.5em 0.5em;
+    padding: 1em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: #687982;
+    color: #ffffff;
+}
+.custom-tablink ul li.active .tab-btn{
+      background: #293d48;
+}
+.custom-section{
+    border-radius: 5px;
+    border: 1px solid #f3f3f3;
+    padding: 25px;
+}
+.custom-actions{
+  display: inline-block;
+  width: 100%;
+  margin-top: 30px;
+}
+.custom-actions ul{
+  display: inline-block;
+  text-align: right;
+  float: right;
+}
+.custom-actions ul li{
+  display: inline-block;
+  list-style: none;
+}
+.custom-actions ul li .next-btn {
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border-radius: 0.1875rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border: 1px solid transparent;
+    padding: 0.875rem 1.5rem;
+    box-shadow: 0 2px 2px 0 rgba(108, 114, 147, 0.14), 0 3px 1px -2px rgba(108, 114, 147, 0.2), 0 1px 5px 0 rgba(108, 114, 147, 0.12);
+    color: #fff;
+    background-color: #6c7293;
+    border-color: #6c7293;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+}
+.custom-actions ul li .next-btn{
+  color: #293d48;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.custom-actions ul li .next-btn:hover{
+      background-color: #293d48;
+    border-color: #617179;
+    color: #fff;
+}
+.product-data .data-img img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+  .product-data .toggle-bold{
+  }
+  .product-data .shipping-free {
+    display: inline-block;
+    background-color: #fff;
+    position: absolute;
+    right: 80px;
+    top: 34px;
+    padding: 11px 10px 10px 10px;
+  }
+  .product-data .toggle-switch{
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .product-data.accordion.accordion-solid-header .card .card-header a[aria-expanded="false"]:before{
+    content: '\e0cf';
+  }
+  .product-data.accordion.accordion-solid-header .card .card-header a[aria-expanded="true"]:before{
+    content: "\e0bd";
+  }
+a.btn.btn-icon {
+    border-radius: 100%;
+    display: inline-block;
+    overflow: hidden;
+    border: 0;
+    padding: 12px 0 0 0 !important;
+}
+.full-width {
+    width: 100%;
+    font-size: 16px;
+}
+.m-b-20{
+  margin-bottom: 20px;
+}
+.open-finish{
+  display: none;
+}
+div#edit-view-popup .wizard > .content {
+    margin: 0 !important;
+    border: 0px !important;
+}

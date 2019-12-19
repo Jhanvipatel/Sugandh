@@ -1,0 +1,243 @@
+{% extends 'header.html' %}
+{% block javascript %}
+    <script>
+	document.getElementById('get_file').onclick = function() {
+	    document.getElementById('my_file').click();
+	};
+	</script>
+
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+	#my_file {
+    display: none;
+}
+
+#get_file {
+    cursor: pointer;
+    padding: 9px 20px;
+
+}
+</style>
+
+<div class="main-panel">
+<div class="content-wrapper global-settingmain">
+<h3 class="card-title mb-4">Manage Banner Image</h3>
+	<div class="card pt-4 card-body mb-5">
+		<div class="row">
+			<div class="col-md-7">
+				<h4 class="card-title mb-4 ">Collection Page</h4>
+			</div>
+			<div class="col-md-5 text-right">
+            <input type="button" id="get_file" class="btn btn-success btn-sm btn-icon-text mr-3" data-toggle="modal" data-target="#exampleModal-2" value="Edit">
+			  <input type="file" id="my_file">
+			</div>
+		</div>
+		<div class="grid-margin stretch-card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/sugandh-9a9db.appspot.com/o/setting%2FCollection%20Page%2Fcollection.jpg?alt=media&token=null">
+		</div>
+	</div>
+	<div class="card pt-4 card-body mb-5">
+		<div class="row">
+			<div class="col-md-7">
+				<h4 class="card-title mb-4 ">Women Page</h4>
+			</div>
+			<div class="col-md-5 text-right">
+	          <input type="button" id="get_file" class="btn btn-success btn-sm btn-icon-text mr-3" data-toggle="modal" data-target="#exampleModal-3"  value="Edit">
+			  <input type="file" id="my_file">
+			</div>
+		</div>
+		<div class="grid-margin stretch-card">
+		  <img src="https://firebasestorage.googleapis.com/v0/b/sugandh-9a9db.appspot.com/o/setting%2FWomen%20Page%2Fwomen.jpg?alt=media&token=df9b2664-9abe-4882-b584-f1d62d24dbe7">
+		</div>
+	</div>
+	<div class="card pt-4 card-body mb-5">
+		<div class="row">
+			<div class="col-md-7">
+				<h4 class="card-title mb-4 ">Upcycled Product</h4>
+			</div>
+			<div class="col-md-5 text-right">
+	          <input type="button" id="get_file" class="btn btn-success btn-sm btn-icon-text mr-3" data-toggle="modal" data-target="#exampleModal-4" value="Edit">
+			  <input type="file" id="my_file">
+			</div>
+		</div>
+		<div class="grid-margin stretch-card">
+		  <img src="https://firebasestorage.googleapis.com/v0/b/sugandh-9a9db.appspot.com/o/setting%2FUpcycled%20Product%2Fupcycled.jpg?alt=media&token=dda304d4-c376-4dcc-9564-41e8b0aa88a8">
+		</div>
+	</div>
+	<div class="card pt-4 card-body mb-5">
+		<div class="row">
+			<div class="col-md-7">
+				<h4 class="card-title mb-4 ">Sale Page</h4>
+			</div>
+			<div class="col-md-5 text-right">
+	          <input type="button" id="get_file" class="btn btn-success btn-sm btn-icon-text mr-3" data-toggle="modal" data-target="#exampleModal-5" value="Edit">
+			  <input type="file" id="my_file">
+			</div>
+		</div>
+		<div class="grid-margin stretch-card">
+		  <img src="https://firebasestorage.googleapis.com/v0/b/sugandh-9a9db.appspot.com/o/setting%2FSale%20Page%2Fsale.jpg?alt=media&token=abc7e546-3e91-4d16-a40b-3daac712fd31">
+		</div>
+	</div>
+	<div class="card pt-4 card-body mb-5">
+		<div class="row">
+			<div class="col-md-7">
+				<h4 class="card-title mb-4 ">Trending Page</h4>
+			</div>
+			<div class="col-md-5 text-right">
+	          <input type="button" id="get_file" class="btn btn-success btn-sm btn-icon-text mr-3" data-toggle="modal" data-target="#exampleModal-6" value="Edit">
+			  <input type="file" id="my_file">
+			</div>
+		</div>
+		<div class="grid-margin stretch-card">
+		  <img src="https://firebasestorage.googleapis.com/v0/b/sugandh-9a9db.appspot.com/o/setting%2FTrending%20Page%2Ftrending.jpg?alt=media&token=4e7dafe3-e964-4ed2-bf38-6d219910e28a">
+		</div>
+	</div>
+
+<div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Collection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                <form class="forms-sample" name="form" action="{% url "setting_coll" %}" method="post">
+              <div class="modal-body">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <div id="fine-uploader-manual-trigger">
+						  <input class="custom-file" type="file" name="imgname" id="img" onchange="getFileData(this);" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+					 </div>
+                  </div>
+               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="Submit" value="Submit" name="Submit" class="btn btn-primary">Update</button>
+              </div>
+             </form>
+            </div>
+          </div>
+        </div>
+
+<div class="modal fade" id="exampleModal-3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-3" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Women </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+                <form class="forms-sample" name="form" action="{% url "setting_women" %}" method="post">
+              <div class="modal-body">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <div id="fine-uploader-manual-trigger">
+						  <input class="custom-file" type="file" name="imgname" id="img" onchange="getFileData(this);" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+					 </div>
+                  </div>
+               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="Submit" value="Submit" name="Submit" class="btn btn-primary">Update</button>
+              </div>
+             </form>
+            </div>
+          </div>
+        </div>
+
+<div class="modal fade" id="exampleModal-4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-4" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Upcycled</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+                <form class="forms-sample" name="form" action="{% url "setting_upcycled" %}" method="post">
+              <div class="modal-body">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <div id="fine-uploader-manual-trigger">
+						  <input class="custom-file" type="file" name="imgname" id="img" onchange="getFileData(this);" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+					 </div>
+                  </div>
+               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="Submit" value="Submit" name="Submit" class="btn btn-primary">Update</button>
+              </div>
+             </form>
+            </div>
+          </div>
+        </div>
+
+<div class="modal fade" id="exampleModal-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-5" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Sale </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+                <form class="forms-sample" name="form" action="{% url "setting_sale" %}" method="post">
+              <div class="modal-body">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <div id="fine-uploader-manual-trigger">
+						  <input class="custom-file" type="file" name="imgname" id="img" onchange="getFileData(this);" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+					 </div>
+                  </div>
+               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="Submit" value="Submit" name="Submit" class="btn btn-primary">Update</button>
+              </div>
+             </form>
+            </div>
+          </div>
+        </div>
+
+<div class="modal fade" id="exampleModal-6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-6" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Trending </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+                <form class="forms-sample" name="form" action="{% url "setting_trending" %}" method="post">
+              <div class="modal-body">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <div id="fine-uploader-manual-trigger">
+						  <input class="custom-file" type="file" name="imgname" id="img" onchange="getFileData(this);" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+					 </div>
+                  </div>
+               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="Submit" value="Submit" name="Submit" class="btn btn-primary">Update</button>
+              </div>
+             </form>
+            </div>
+          </div>
+        </div>
+
+
+</div>
+
+{% endblock %}
+
+

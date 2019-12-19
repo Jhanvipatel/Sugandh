@@ -1,0 +1,378 @@
+{% extends 'header.html' %}
+
+{% load static %}
+{% block javascript %}
+    <script>
+
+    function productedit(cName,bName,pName,pdesc,carei,psize,pimg,gftype,ftype,pprice,pqty,pcat,pstatus,sno) {
+
+        console.log(bName);
+        document.getElementById("Collection Name").value = cName;
+        document.getElementById("Brand Name").value = bName;
+        document.getElementById("Product Name").value = pName;
+        document.getElementById("Category").value = pcat;
+        document.getElementById("Product Description").value = pdesc;
+        document.getElementById("Care Instructions").value = carei;
+        document.getElementById("size").value = psize;
+        document.getElementById("fabric").value = gftype;
+        document.getElementById("fselect").value = ftype;
+        document.getElementById("Product Price").value = pprice;
+        document.getElementById("Available Quantity").value = pqty;
+        document.getElementById("Serial no").value = sno;
+        if(pstatus === "True") {
+            document.getElementById("display").checked = true;
+        }else {
+        document.getElementById("display").checked = false;
+        }
+    }
+
+
+	</script>
+{% endblock %}
+
+{% block content %}
+    <script type="text/template" id="qq-template-manual-trigger">
+        <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="Drop files here">
+            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+            </div>
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span class="qq-upload-drop-area-text-selector"></span>
+            </div>
+            <div class="buttons">
+                <div class="qq-upload-button-selector qq-upload-button">
+                    <div>Select files</div>
+                </div>
+                <button type="button" id="trigger-upload" class="btn btn-primary">
+                    <i class="icon-upload icon-white"></i> Upload
+                </button>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                    <div class="qq-progress-bar-container-selector">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <img class="qq-thumbnail-selector" qq-max-size="100" qq-server-scale>
+                    <span class="qq-upload-file-selector qq-upload-file"></span>
+                    <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+                    <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                    <span class="qq-upload-size-selector qq-upload-size"></span>
+                    <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel btn btn-dark">Cancel</button>
+                    <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry btn btn-secondary">Retry</button>
+                    <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete btn btn-danger">Delete</button>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                </li>
+            </ul>
+
+            <dialog class="qq-alert-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-confirm-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">No</button>
+                    <button type="button" class="qq-ok-button-selector">Yes</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-prompt-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <input type="text">
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Ok</button>
+                </div>
+            </dialog>
+        </div>
+    </script>
+    <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add Product</h4>
+              <div class="custom-tablink">
+                <ul>
+                    <li><div class="tab-btn"><span class="number">1.</span> Collection Details</div>> </li>
+                    <li><div class="tab-btn"><span class="number">2.</span> Product Details</div>> </li>
+                    <li class="active"><div class="tab-btn"><span class="number">3.</span> Display</div>> </li>
+                </ul>
+              </div>
+                <form id="" action="#">
+                    <section class="custom-section">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                              <th>Order #</th>
+                              <th>Images</th>
+                              <th>Collection</th>
+                              <th>Brand</th>
+                              <th>Product</th>
+                              <th>Category</th>
+                              <th>Size</th>
+                              <th>Quantity</th>
+                              <th>Price</th>
+                              <th style="width: 120px;" >Actions</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for product,ProductVariant in context %}
+                          <tr>
+                              <td class=" "># 0001</td>
+                              <td class="  sorting_1"><img src="images/Rooh-1.jpg" width="50" alt="img"> </td>
+                              <td class=" ">{{ product.collectionID.collectionName }}</td>
+                              <td class=" ">{{ product.brandID.brandName }}</td>
+                              <td class=" ">{{ product.productName }}</td>
+                              <td class=" ">{{ product.categoryID.categoryName }}</td>
+                              <td class=" ">{{ ProductVariant.size.sizeID }}</td>
+                              <td class=" ">{{ ProductVariant.stock.productQty }}</td>
+                              <td class=" ">{{  ProductVariant.price.originalPrice}}</td>
+                              <td>
+                                <button type="button" class="btn btn-primary btn-rounded btn-icon"><i class="typcn typcn-eye" onclick="productedit(cName = '{{ product.collectionID.collectionName  }}', bName = '{{ product.brandID.brandName }}', pName = '{{ product.productName }}', pdesc = '{{ product.productDesc }}', carei = '{{ product.careInstructions }}', psize = '{{ ProductVariant.size.sizeID }}', pimg = '{{ product.productImage }}', gftype = '{{ product.fabricID.fabricName }}', ftype = '{{ product.fitType }}',pprice = '{{ ProductVariant.price.originalPrice }}', pqty = '{{ ProductVariant.stock.productQty }}', pcat ='{{ product.categoryID.categoryName }}',pstatus = '{{ product.productState }}',sno = '{{ product.serialNum }}'); return false " data-toggle="modal" data-target="#edit-view-popup"></i></button>
+                                  <a href="{% url "delete_product" product.productID %}" class="btn btn-danger btn-rounded btn-icon"><i class="typcn typcn-trash"></i></a>
+                              </td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                      <div class="custom-actions">
+                        <ul>
+                          <li>
+                            <a class="next-btn" href="{% url "product_display" %}">Next</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </section>
+                </form>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="save-display" tabindex="-1" role="dialog" aria-labelledby="save-display" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Add Collection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="save-information">
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Name :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Category :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Description :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Garment Fabric Type :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Lining Fabric :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Fit Type :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Care Instructions :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Size :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Price :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Available Quantity :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Display State :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    <div class="modal fade" id="edit-view-popup" tabindex="-1" role="dialog" aria-labelledby="edit-view-popup" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel-2">Edit Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <form class="forms-sample" id="example-form" name="form" action="{% url "update_product" %}" method="post">
+        <div class="modal-body">
+          <div class="row">
+              {% csrf_token %}
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Collection Name </label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" id="Collection Name" name="Collection Name" placeholder="Collection Name">
+                  <input type="hidden" class="form-control" aria-describedby="emailHelp" id="Serial no" name="Serial no" placeholder="Collection Name">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Brand Name</label>
+                  <select class="js-example-basic-single w-100" id="Brand Name" name="Brand Name">
+                              {% for  brand in brandobj %}
+                                <option value="{{ brand.brandName }}">{{ brand.brandName }}</option>
+                              {% endfor %}
+                            </select>
+              </div>
+            </div>
+{#            <div class="col-md-12">#}
+{#              <div class="form-group">#}
+{#                <label>Collection Description</label>#}
+{#                <textarea class="form-control" placeholder="Description" rows="3" id="Collection Description"></textarea>#}
+{#              </div>#}
+{#            </div>#}
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" id ="Product Name" name="Product Name" placeholder="Enter Product Name">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Product Category</label>
+                <select class="js-example-basic-single w-100" id="Category" name="Category">
+                              {% for  category in categoryobj %}
+                                <option value="{{ category.categoryName }}">{{ category.categoryName }}</option>
+                              {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Product Description</label>
+                <textarea class="form-control" id="Product Description" name="Product Description" placeholder="Description" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Garment Fabric Type</label>
+                <select class="js-example-basic-single w-100" id="fabric" name="fabric">
+                  {% for  fabric in fabricobj %}
+                    <option value="{{ fabric.fabricName }}">{{ fabric.fabricName }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+{#            <div class="col-md-6">#}
+{#              <div class="form-group">#}
+{#                <label>Lining Fabric</label>#}
+{#                <input type="text" class="form-control" id="Lining Fabric" placeholder="Lining Fabric">#}
+{#              </div>#}
+{#            </div>#}
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Fit Type</label>
+                <select class="js-example-basic-single w-100" id="fselect" name="fselect">
+                  {% for  fit_type in fit_typeobj %}
+                    <option value="{{ fit_type.fitDes }}">{{ fit_type.fitDes }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Care Instructions </label>
+                  <input type="text" class="form-control" id="Care Instructions" name="Care Instructions" placeholder="Care Instructions">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Product Size </label>
+                <select class="js-example-basic-single w-100" id="size" name="size">
+                              {% for  size in sizeobj %}
+                                <option value="{{ size.sizeID }}">{{ size.sizeID }}</option>
+                              {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Product Price</label>
+                <input type="text" class="form-control" id="Product Price" name="Product Price" placeholder="Product Price">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Available Quantity </label>
+                <input type="text" class="form-control" id="Available Quantity" name="Available Quantity" placeholder="Available Quantity">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Display State</label><br>
+                  <b class="toggle-bold">Deactive</b>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="display" name="display">
+                  <span class="toggle-slider round"></span>
+                </label>
+                  <b class="toggle-bold">Active</b>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="img-div mb-20">
+                 <img src="images/carousel/banner_1.jpg">
+                  <div class="icon">
+                    <button type="button" class="btn btn-primary btn-rounded btn-icon"><i class="typcn typcn-edit"></i></button>
+                    <button type="button" class="btn btn-danger btn-rounded btn-icon"><i class="typcn typcn-delete-outline btn-icon-append"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+        <button type="Submit" class="btn btn-primary">Submit</button>
+      </div>
+        </form>
+
+    </div>
+  </div>
+</div>
+        <!-- content-wrapper ends -->
+{% endblock %}
+

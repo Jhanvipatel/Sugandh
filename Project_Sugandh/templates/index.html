@@ -1,0 +1,579 @@
+{% extends 'header.html' %}
+
+{% block javascript %}
+<script>
+    {#var l = '{{json_form}}'#}
+    {#console.log(l)#}
+    {#    for (i = 0; i < l.length; i++) {#}
+    {#        for (j = 0; j < i.length; j++) {#}
+    {#            console.log(l[i][j])#}
+    {#        }#}
+    {##}
+    {#    }#}
+
+    function viewcustomer(information) {
+        console.log("Hello")
+        console.log(information)
+
+    }
+    </script>
+{% endblock %}
+{% block content %}
+
+<style type="text/css">
+  .shipping-Status-content {
+    display: block;
+    width: 100%;
+    margin: 0 10px;
+}
+.shipping-Status-content ul {
+    list-style: none;
+    margin: 0;
+    border: 1px solid #f1f1f1;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    display: block;
+}
+.shipping-Status-content-box-section button {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    z-index: 11;
+}
+.new-orders-dashboard .custom-tablink ul li {
+    width: 33.33353%;}
+.new-orders-dashboard .custom-tablink ul li a.nav-link.active {
+    background: #293d48;
+}
+.new-orders-dashboard .custom-tablink ul li a {
+    display: block;
+    width: auto;
+    margin: 0 0.5em 0.5em;
+    padding: 1em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    border-radius: 5px !important;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: #687982;
+    color: #ffffff !important;
+}
+
+</style>
+    <div class="content-wrapper">
+{#      <div class="card card-body mb-5 product-current-stock">#}
+{#            <div class="row">#}
+{#                <div class="col-md-12">#}
+{#                    <h4 class="card-title">Product Current Stock</h4>#}
+{#                </div>#}
+{#                <div class="col-md-4 grid-margin stretch-card">#}
+{#                    <div class="card pointer-none">#}
+{#                        <div class="card-body">#}
+{#                            <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap">#}
+{#                                <div class=" bg-gradient-warning">#}
+{#                                <p class="">Orders</p>#}
+{#                                    <h1 class="mb-0 text-white">12</h1>#}
+   {#  </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-4 grid-margin stretch-card">#}
+{#                    <div class="card pointer-none">#}
+{#                        <div class="card-body">#}
+{#                            <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap">#}
+{#                                <div class="bg-gradient-primary">#}
+{#                                <p class="">Customers</p>#}
+{#                                    <h1 class="mb-0 text-white">12</h1>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-4 grid-margin stretch-card">#}
+{#                    <div class="card pointer-none">#}
+{#                        <div class="card-body">#}
+{#                            <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap">#}
+{#                                <div class="bg-gradient-red">#}
+{#                                <p class="">Total Products</p>#}
+{#                                    <h1 class="mb-0 text-white">12</h1>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+
+
+        <div class="card grid-margin new-orders-dashboard card-body">
+          <h4 class="card-title">New Orders in this Week</h4>
+            <div class="custom-tablink">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home-1" role="tab" aria-controls="home-1" aria-selected="true">Home 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile-1" role="tab" aria-controls="profile-1" aria-selected="false">Home 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact-1" role="tab" aria-controls="contact-1" aria-selected="false">Home 3</a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="home-1" role="tabpanel" aria-labelledby="home-tab">
+                <div class="table-responsive">
+                  <table id="customers-listing-01" class="table table-striped project-orders-table">
+                      <thead>
+                          <tr>
+                              <th class="ml-5">Order Id</th>
+                              <th>Date</th>
+                              <th>Customer</th>
+                              <th>Product</th>
+                              <th>Quantity </th>
+                              <th>Payment</th>
+                              <th>Status</th>
+                              <th>Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>1</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>2</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>3</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-secondary btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>4</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-danger btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>5</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="profile-1" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="table-responsive">
+                  <table id="customers-listing-02" class="table table-striped project-orders-table">
+                      <thead>
+                          <tr>
+                              <th class="ml-5">Order Id</th>
+                              <th>Date</th>
+                              <th>Customer</th>
+                              <th>Product</th>
+                              <th>Quantity </th>
+                              <th>Payment</th>
+                              <th>Status</th>
+                              <th>Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>2</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>2</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>3</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>4</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>5</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="contact-1" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="table-responsive">
+                  <table id="customers-listing-03" class="table table-striped project-orders-table">
+                      <thead>
+                          <tr>
+                              <th class="ml-5">Order Id</th>
+                              <th>Date</th>
+                              <th>Customer</th>
+                              <th>Product</th>
+                              <th>Quantity </th>
+                              <th>Payment</th>
+                              <th>Status</th>
+                              <th>Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>3</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>2</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>3</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>4</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>5</td>
+                              <td>10/02/10</td>
+                              <td>Malhar Mehta</td>
+                              <td>Green Plazzo Kurti Combo</td>
+                              <td>1</td>
+                              <td>COD</td>
+                              <td> <span class="btn btn-inverse-success btn-sm">Delivered</span></td>
+                              <td>
+                                <button type="button" class="btn btn-secondary btn-sm btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print Courier Slip Update"><i class="fa fa-truck"></i></button>
+                                <button type="button" class="btn btn-sm btn-success btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Approve Order"><i class="fa fa-check"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger btn-icon-text" data-toggle="tooltip" data-placement="left" title="" data-original-title="Cancel Order"><i class="fa fa-times"></i></button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row custom-box-fild">
+            <div class="col-md-6">
+              <div class="card  card-body das-second-row quick-message-box-section mb-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="card-title">Quick Message</h4>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Contact Number</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Collection Name">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Message</label>
+                        <textarea type="email" class="form-control" id="exampleInputEmail1" ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="button" class="btn pull-right btn-primary">Send</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card  card-body das-second-row shipping-Status-content-box-section  mb-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="card-title">Shipping Status</h4>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Shipping Number</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Collection Name">
+                        <button type="button" class="btn pull-right btn-primary">search</button>
+                      </div>
+                    </div>
+                    <div class="shipping-Status-content">
+                      <ul>
+                        <li>
+                          10-10-2019 / 10:20pm   Shipping
+                        </li>
+                        <li>
+                          10-10-2019 / 10:20pm   Shipping
+                        </li>
+                        <li>
+                          10-10-2019 / 10:20pm   Shipping
+                        </li>
+                        <li>
+                          10-10-2019 / 10:20pm   Delivered
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="card  card-body das-second-row quick-message-box-section mb-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="card-title">Customers</h4>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Customers ID</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Collection Name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Customers Name</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Collection Name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Customers Number</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Collection Name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Email ID </label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Collection Name">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="button" class="btn pull-right btn-primary" onclick="viewcustomer({{ customerobj }}); return false">Search</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="card  card-body das-second-row collection-box-section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="card-title">Collection Current Stock</h4>
+                    <form class="form d-flex flex-column align-items-center justify-content-between w-100 pb-3">
+                        <div class="form-group mb-2 w-100">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class=" text-center card" style="background:url(images/dashboard1.jpg) no-repeat center ">
+                        <div class="card-body">
+                            <h5 class="mb-3">Collection 1</h5>
+                            <h1 class="mb-0">12</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card text-center" style="background:url(images/dashboard1.jpg) no-repeat center ">
+                        <div class="card-body">
+                            <h5 class="mb-3">Collection 1</h5>
+                            <h1 class="mb-0">12</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card text-center" style="background:url(images/dashboard1.jpg) no-repeat center ">
+                        <div class="card-body">
+                            <h5 class="mb-3">Collection 1</h5>
+                            <h1 class="mb-0">12</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card text-center" style="background:url(images/dashboard1.jpg) no-repeat center ">
+                        <div class="card-body">
+                            <h5 class="mb-3">Collection 1</h5>
+                            <h1 class="mb-0">12</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card text-center" style="background:url(images/dashboard1.jpg) no-repeat center ">
+                        <div class="card-body">
+                            <h5 class="mb-3">Collection 1</h5>
+                            <h1 class="mb-0">12</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card text-center" style="background:url(images/dashboard1.jpg) no-repeat center ">
+                        <div class="card-body">
+                            <h5 class="mb-3">Collection 1</h5>
+                            <h1 class="mb-0">12</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card text-center" style="background:url(images/dashboard1.jpg) no-repeat center ">
+                        <div class="card-body">
+                            <h5 class="mb-3">Collection 1</h5>
+                            <h1 class="mb-0">12</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 grid-margin stretch-card">
+                    <div class="card text-center" style="background:url(images/dashboard1.jpg) no-repeat center ">
+                        <div class="card-body">
+                            <h5 class="mb-3">Collection 1</h5>
+                            <h1 class="mb-0">12</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="template-demo d-flex justify-content-between flex-wrap">
+            <button type="button" class="btn btn-success btn-fw" onclick="showSuccessToast()">Success</button>
+            <button type="button" class="btn btn-info btn-fw" onclick="showInfoToast()">Info</button>
+            <button type="button" class="btn btn-warning btn-fw" onclick="showWarningToast()">Warning</button>
+            <button type="button" class="btn btn-danger btn-fw" onclick="showDangerToast()">Danger</button>
+        </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'header.html' %}
+
+{% block javascript %}
+<script>
+
+</script>
+{% endblock %}
+{% block content %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="card">
+            <div class="card-body">
+                <form name="form" action="{% url "add_blog_detail" %}" method="post" >
+              <h4 class="card-title">Add Blogs</h4>
+                <div class="row">
+                    {% csrf_token %}
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Blog Title </label>
+                      <input type="text" class="form-control" name="Blog Title" placeholder="Blog Title">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Blog Description</label>
+                      <textarea class="form-control" placeholder="Description" name="Description" rows="3"></textarea>
+                    </div>
+                  </div>
+                    <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Blog State</label><br>
+                            <b class="toggle-bold">Deactive</b>
+                            <label class="toggle-switch">
+                              <input type="checkbox" name="Blog State" checked>
+                              <span class="toggle-slider round"></span>
+                            </label>
+                            <b class="toggle-bold">Active</b>
+                          </div>
+                        </div>
+                    <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Blog Type</label>
+                        <select class="js-example-basic-single w-100" id="Blog Type" name="Blog Type">
+                                <option value="Blog">Blog</option>
+                                <option value="Social Blog">Social Blog</option>
+                            </select>
+                    </div>
+                  </div>
+                    <div class="col-md-12">
+                      <div id="fine-uploader-manual-trigger">
+                              <input class="custom-file" type="file" name="imgname" id="productImgUpload" accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" >
+                      </div>
+                    </div>
+
+                  <div class="col-md-12">
+                    <div class="actions clearfix text-right">
+                      <button type="Submit" value="Submit" name="Submit" class="btn btn-success">Save</button>
+                    </div>                            
+                  </div>
+                </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+{% endblock %}
+
+

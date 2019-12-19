@@ -1,0 +1,298 @@
+{% extends 'header.html' %}
+{% block javascript %}
+    <script>
+    window.onload = function() {
+        document.getElementById("Delivery Address Line 1").disabled = true;
+        document.getElementById("Delivery Address Line 2").disabled = true;
+        document.getElementById("dPincode").disabled = true;
+        document.getElementById("dCity").disabled = true;
+        document.getElementById("dState").disabled = true;
+        document.getElementById("dCountry").disabled = true;
+        document.getElementById("Whatsapp Number").disabled = true
+    };
+    var count = 0
+    function delivery() {
+        count++
+        if(count%2 == 0){
+            document.getElementById("Delivery Address Line 1").disabled = true;
+        document.getElementById("Delivery Address Line 2").disabled = true;
+        document.getElementById("dPincode").disabled = true;
+        document.getElementById("dCity").disabled = true;
+        document.getElementById("dState").disabled = true;
+        document.getElementById("dCountry").disabled = true;
+        }else {
+            document.getElementById("Delivery Address Line 1").disabled = false;
+        document.getElementById("Delivery Address Line 2").disabled = false;
+        document.getElementById("dPincode").disabled = false;
+        document.getElementById("dCity").disabled = false;
+        document.getElementById("dState").disabled = false;
+        document.getElementById("dCountry").disabled = false;
+        }
+    }
+
+    var wcount = 0;
+    function whatsapp() {
+        wcount++;
+        if(wcount % 2 == 0) {
+            document.getElementById("Whatsapp Number").disabled = true;
+        } else {
+            document.getElementById("Whatsapp Number").disabled = false;
+        }
+    }
+    </script>
+{% endblock %}
+{% block content %}
+    <script type="text/template" id="qq-template-manual-trigger">
+        <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="Drop files here">
+            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+            </div>
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span class="qq-upload-drop-area-text-selector"></span>
+            </div>
+            <div class="buttons">
+                <div class="qq-upload-button-selector qq-upload-button">
+                    <div>Select files</div>
+                </div>
+                <button type="button" id="trigger-upload" class="btn btn-primary">
+                    <i class="icon-upload icon-white"></i> Upload
+                </button>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                    <div class="qq-progress-bar-container-selector">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <img class="qq-thumbnail-selector" qq-max-size="100" qq-server-scale>
+                    <span class="qq-upload-file-selector qq-upload-file"></span>
+                    <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+                    <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                    <span class="qq-upload-size-selector qq-upload-size"></span>
+                    <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel">Cancel</button>
+                    <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry">Retry</button>
+                    <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">Delete</button>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                </li>
+            </ul>
+
+            <dialog class="qq-alert-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-confirm-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">No</button>
+                    <button type="button" class="qq-ok-button-selector">Yes</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-prompt-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <input type="text">
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Ok</button>
+                </div>
+            </dialog>
+        </div>
+    </script>
+    <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="card">
+            <div class="card-body">
+             <form name="form" action="{% url "add_reseller_detail" %}" method="post" >
+              <h4 class="card-title">Add Reseller</h4>
+                <div class="row">
+                    {% csrf_token %}
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Logo</label>
+                      <div id="fine-uploader-manual-trigger"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>GST Number </label>
+                      <input type="text" class="form-control" name="GST Number" placeholder="GST Number" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Company Name </label>
+                      <input type="text" class="form-control" name="Company Name" placeholder="Company Name">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Contact Person Name</label>
+                      <input type="text" class="form-control" name="Contact Person Name" placeholder="Contact Person Name" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Office Address Line 1</label>
+                      <input type="text" class="form-control" name="Office Address Line 1" placeholder="Office Address Line 1" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Office Address Line 2 </label>
+                      <input type="text" class="form-control" name="Office Address Line 2" placeholder="Office Address Line 2">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Pincode  </label>
+                      <input type="text" class="form-control" name="oPincode" placeholder="Pincode " required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>City</label>
+                      <input type="text" class="form-control" name="oCity" placeholder="City" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>State </label>
+                      <input type="text" class="form-control" name="oState" placeholder="State" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Country</label>
+                      <input type="text" class="form-control" name="oCountry" placeholder="Country" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Same as Office Address </label><br>
+                      <b class="toggle-bold">No</b>
+                      <label class="toggle-switch">
+                        <input type="checkbox" id="address" name="address" onchange="delivery()" checked>
+                        <span class="toggle-slider round"></span>
+                      </label> 
+                      <b class="toggle-bold">Yes</b>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Delivery Address Line 1</label>
+                      <input type="text" class="form-control" name="Delivery Address Line 1" id="Delivery Address Line 1" placeholder="Delivery Address Line 1">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Delivery Address Line 2</label>
+                      <input type="text" class="form-control" name="Delivery Address Line 2" id="Delivery Address Line 2" placeholder="Delivery Address Line 2">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Pincode</label>
+                      <input type="text" class="form-control" name="dPincode" id="dPincode" placeholder="Pincode">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>City </label>
+                      <input type="text" class="form-control" name="dCity" id="dCity" placeholder="City ">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>State</label>
+                      <input type="text" class="form-control" name="dState" id="dState" placeholder="State">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Country</label>
+                      <input type="text" class="form-control" name="dCountry" id="dCountry" placeholder="Country">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Primary Contact Number</label>
+                      <input type="text" class="form-control" name="Primary Contact Number" placeholder="Primary Contact Number" required>
+                    </div>
+                  </div>
+{#                  <div class="col-md-6">#}
+{#                    <div class="form-group">#}
+{#                      <label>Same as Whatsapp Number</label><br>#}
+{#                      <b class="toggle-bold">No</b>#}
+{#                      <label class="toggle-switch">#}
+{#                        <input type="checkbox" id="wstatus" name="wstatus" onchange="whatsapp()" checked>#}
+{#                        <span class="toggle-slider round"></span>#}
+{#                      </label> #}
+{#                      <b class="toggle-bold">Yes</b>#}
+{#                    </div>#}
+{#                  </div>#}
+
+
+                    <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Same as Primary Contact Number </label><br>
+                      <b class="toggle-bold">No</b>
+                      <label class="toggle-switch">
+                        <input type="checkbox" id="ws" name="ws" onchange="whatsapp()" checked>
+                        <span class="toggle-slider round"></span>
+                      </label>
+                      <b class="toggle-bold">Yes</b>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Whatsapp Number</label>
+                      <input type="text" class="form-control" id="Whatsapp Number" name="Whatsapp Number" placeholder="Whatsapp Number">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Email ID</label>
+                      <input type="text" class="form-control" name="Email ID" placeholder="Email ID" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Bank Name</label>
+                      <input type="text" class="form-control" name="Bank Name" placeholder="Bank Name">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Account Number </label>
+                      <input type="text" class="form-control" name="Account Number" placeholder="Account Number ">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>IFSC Code </label>
+                      <input type="text" class="form-control" name="IFSC Code" placeholder="IFSC Code ">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="actions clearfix text-right">
+                      <button type="Submit" value="Submit" name="Submit" class="btn btn-success" data-toggle="modal" data-target="#save-display">Save</button>
+                    </div>                            
+                  </div>
+                </div>
+             </form>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+
+{% endblock %}
+
+

@@ -1,0 +1,179 @@
+{% extends 'header.html' %}
+
+{% load static %}
+{% load tags %}
+{% block javascript %}
+    <script>
+	</script>
+{% endblock %}
+
+{% block content %}
+    <script type="text/template" id="qq-template-manual-trigger">
+        <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="Drop files here">
+            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+            </div>
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span class="qq-upload-drop-area-text-selector"></span>
+            </div>
+            <div class="buttons">
+                <div class="qq-upload-button-selector qq-upload-button">
+                    <div>Select files</div>
+                </div>
+                <button type="button" id="trigger-upload" class="btn btn-primary">
+                    <i class="icon-upload icon-white"></i> Upload
+                </button>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                    <div class="qq-progress-bar-container-selector">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <img class="qq-thumbnail-selector" qq-max-size="100" qq-server-scale>
+                    <span class="qq-upload-file-selector qq-upload-file"></span>
+                    <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+                    <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                    <span class="qq-upload-size-selector qq-upload-size"></span>
+                    <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel btn btn-dark">Cancel</button>
+                    <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry btn btn-secondary">Retry</button>
+                    <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete btn btn-danger">Delete</button>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                </li>
+            </ul>
+
+            <dialog class="qq-alert-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-confirm-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">No</button>
+                    <button type="button" class="qq-ok-button-selector">Yes</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-prompt-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <input type="text">
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Ok</button>
+                </div>
+            </dialog>
+        </div>
+    </script>
+    <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add Product</h4>
+              <div class="custom-tablink">
+                <ul>
+                  <li><a href="collection-details.php"><span class="number">1.</span> Collection Details</a> </li>
+                  <li><a href="product-details.php"><span class="number">2.</span> Product Details</a> </li>
+                  <li><a href="display.php"><span class="number">3.</span> Display</a></a> </li>
+                  <li class="active"><a href="finish.php"><span class="number">4.</span> Finish</a></li>
+                </ul>
+              </div>
+                <form id="" action="#">
+                    <section class="custom-section">
+                      <h3>Finish</h3>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="checkbox" type="checkbox">
+                          I agree with the Terms and Conditions.
+                        </label>
+                      </div>
+                      <div class="custom-actions">
+                        <ul>
+                          <li>
+                            <a href="display.php">Previous</a>
+                          </li>
+                          <li>
+                            <a class="next" href="product.html">Finish</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </section>
+                </form>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="save-display" tabindex="-1" role="dialog" aria-labelledby="save-display" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Add Collection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="save-information">
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Name :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Category :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Description :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Garment Fabric Type :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Lining Fabric :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Fit Type :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Care Instructions :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Size :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Price :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Available Quantity :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Display State :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+
+{% endblock %}
+

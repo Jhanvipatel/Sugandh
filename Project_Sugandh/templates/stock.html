@@ -1,0 +1,230 @@
+{% extends 'header.html' %}
+{% load tags %}
+{% block javascript %}
+<script>
+</script>
+{% endblock %}
+{% block content %}
+<style type="text/css">
+.product-name p{text-overflow: ellipsis;overflow: hidden;width: 100%;white-space: nowrap;max-width: 350px;}
+.add-stock{
+	display: inline-block;
+	width: 100%
+}
+.dataTables_wrapper .dataTable .add-stock button{
+	width: 40px;
+	margin-left: 10px;
+	float: left;
+	padding: 9px 5px;
+}
+.dataTables_wrapper .dataTable .add-stock button i:before{
+    content: "\e0cf";
+    font-family: "typicons";
+    font-style: normal;
+    display: block;
+    font-size: 1rem;
+    line-height: 10px;
+}
+.dataTables_wrapper .dataTable .add-stock input{
+	width: calc(100% - 50px);
+	float: left;
+	height: 28px;
+}
+.remove-stock{
+	display: inline-block;
+	width: 100%
+}
+.dataTables_wrapper .dataTable .remove-stock button{
+	width: 40px;
+	margin-left: 10px;
+	float: left;
+	padding: 9px 5px;
+}
+.dataTables_wrapper .dataTable .remove-stock button i:before{
+    content: "\e0bd";
+    font-family: "typicons";
+    font-style: normal;
+    display: block;
+    font-size: 1rem;
+    line-height: 10px;
+}
+.dataTables_wrapper .dataTable .remove-stock input{
+	width: calc(100% - 50px);
+	float: left;
+	height: 28px;
+}
+.aru-sure button{
+	font-size: 18px !important;
+	padding: 10px 20px !important;
+}
+</style>
+<div class="content-wrapper global-settingmain">
+<h3 class="card-title mb-4">Add Stock Maintenance</h3>
+	<div class="card pt-4 card-body mb-5">
+		<form>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+	                    <label>Brand </label>
+                        <select class="js-example-basic-single w-100 select2-hidden-accessible">
+                          <option>Option1</option>
+                          <option>Option2</option>
+                          <option>Option3</option>
+                          <option>Option4</option>
+                          <option>Option5</option>
+                        </select>
+	                 </div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+	                    <label>Collection </label>
+	                    <select class="js-example-basic-single w-100 select2-hidden-accessible">
+                          <option>Option1</option>
+                          <option>Option2</option>
+                          <option>Option3</option>
+                          <option>Option4</option>
+                          <option>Option5</option>
+                        </select>
+	                 </div>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+	                    <label>Product </label>
+	                    <select class="js-example-basic-single w-100 select2-hidden-accessible">
+                          <option>Option1</option>
+                          <option>Option2</option>
+                          <option>Option3</option>
+                          <option>Option4</option>
+                          <option>Option5</option>
+                        </select>
+	                 </div>
+				</div>
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-secondary pull-right">SEARCH</button>
+                </div>
+			</div>
+		</form>
+		
+	</div>
+	<div class="card pt-4 card-body mb-5">
+		<div class="table-responsive">
+            <table id="Stock-listing-box" class="table  project-orders-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">Sr No</th>
+                        <th class="product-name" style="max-width: 400px;">Product Name</th>
+                        <th style="width: 150px">Current Stock</th>
+                        <th style="width: 200px;">Add Stock</th>
+                        <th style="width: 200px;">Remove Stock </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="product-name"><p>Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo</p></td>
+                        <td>23</td>
+                        <td>
+                        	<div class="add-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-success btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                        <td>
+                        	<div class="remove-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-danger btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="product-name"><p>Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo</p></td>
+                        <td>13</td>
+                        <td>
+                        	<div class="add-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-success btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                        <td>
+                        	<div class="remove-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-danger btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="product-name"><p>Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo</p></td>
+                        <td>18</td>
+                        <td>
+                        	<div class="add-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-success btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                        <td>
+                        	<div class="remove-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-danger btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="product-name"><p>Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo</p></td>
+                        <td>7</td>
+                        <td>
+                        	<div class="add-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-success btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                        <td>
+                        	<div class="remove-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-danger btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="product-name"><p>Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo Green Plazzo Kurti Combo</p></td>
+                        <td>20</td>
+                        <td>
+                        	<div class="add-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-success btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                        <td>
+                        	<div class="remove-stock">
+                        		<input type="text" class="form-control" aria-describedby="emailHelp">
+                        		<button type="button" class="btn btn-danger btn-sm btn-icon-text" data-toggle="modal" data-target="#conform-popup"><i class="menu-arrow"></i></button>
+                        	</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="conform-popup" tabindex="-1" role="dialog" aria-labelledby="conform-popup" aria-hidden="true">
+            <div class="modal-dialog modal-xs" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="text-center aru-sure">
+                  <h3 class="modal-title mb-4" id="exampleModalLabel-2">Are you sure ?</h3>
+                  	<button type="button" class="btn btn-success btn-sm btn-icon-text mr-3" data-toggle="modal" data-target="#edit-view-popup">YES</button>
+                  	<button type="button" class="btn btn-danger btn-sm btn-icon-text">NO</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block javascript %}
+<script>
+window.onload = function() {
+        var x = document.getElementById("collection").value;
+        x = x.split("'#'")
+        document.getElementById("collectiondes").value = x[0]
+};
+    function collectionfun() {
+        var x = document.getElementById("collection").value;
+        x = x.split("'#'")
+        document.getElementById("collectiondes").value = x[0]
+    }
+
+</script>
+{% endblock %}
+{% block content %}
+<div class="main-panel">
+        <div class="content-wrapper">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add Product Wizard</h4>
+              <div class="custom-tablink">
+                <ul>
+                    <li class="active"><div class="tab-btn"><span class="number">1.</span> Collection Details</div></li>
+                  <li><div class="tab-btn"> <span class="number">2.</span> Product Details </div></li>
+                  <li><div class="tab-btn"> <span class="number">3.</span> Display </div></li>
+                </ul>
+              </div>
+                <form id="example-form" name="form" action="{% url "product_detail" %}" method="post">
+                    <section class="custom-section">
+{#                      <h3>Collection Details</h3>#}
+                      <div class="row">
+                      {% csrf_token %}
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Collection Name </label>
+                                <select class="js-example-basic-single w-100" id="collection" name="collectionname" onchange="collectionfun.call()">
+                                  {% for collection in collectionobj %}
+                                    <option value="{{ collection.collectionDesc }}'#'{{collection.collectionName }}">{{ collection.collectionName }}</option>
+                                  {% endfor %}
+                               </select>
+                          </div>
+                        </div>
+{#                        <div class="col-md-6">#}
+{#                          <div class="form-group">#}
+{#                            <label>Brand Name</label>#}
+{#                            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Brand Name">#}
+{#                          </div>#}
+{#                        </div>#}
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Collection Description</label>
+                            <textarea class="form-control" id="collectiondes" placeholder="Description" rows="5" readonly="True"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="custom-actions">
+                        <ul>
+                          <li>
+                              <button type="submit" class="next-btn">Next</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </section>
+                </form>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="save-display" tabindex="-1" role="dialog" aria-labelledby="save-display" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Add Collection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="save-information">
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Name :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Category :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Description :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Garment Fabric Type :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Lining Fabric :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Fit Type :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Care Instructions :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Size :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Product Price :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Available Quantity :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-md-5"><b>Display State :</b></div>
+                    <div class="col-md-7">xyz</div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+{% endblock %}
+

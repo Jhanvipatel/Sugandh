@@ -1,0 +1,1 @@
+web: gunicorn ProjectSugandh.wsgi --log-file -

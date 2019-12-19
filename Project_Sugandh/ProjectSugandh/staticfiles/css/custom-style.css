@@ -1,0 +1,51 @@
+.navbar .navbar-brand-wrapper .navbar-brand-inner-wrapper .navbar-brand{color: #fff}
+.navbar-breadcrumb .navbar-menu-wrapper{width: calc(100% - 0px - -0.5rem);}
+.card .card-title {padding-right: 250px;position: relative;    margin-bottom: 40px;}
+.card .card-title .btn.btn-info {position: absolute;right: 0;top: 0;}
+.btn-icon {padding: 0 !important;}
+.nav-pills.nav-pills-custom{text-align: center;display: block;border-bottom: 1px solid #f1f1f1;}
+.nav-pills.nav-pills-custom .nav-item{display: inline-block;margin: 1em 0.5rem;}
+.nav-pills.nav-pills-custom .nav-link.active{background: #293d48;}
+.wizard > .content > .body{position: initial;width: 100%;height: 100%;}
+
+.accordion .card .card-header a span {
+    margin: 0 20px;
+}
+.product-data span.shipping-free.active-deactive-btn {
+    position: absolute;
+    top: -12px;right: 0;
+}
+
+.title-top-left h3{border-bottom: 1px solid #f1f1f1;border-bottom: 1px solid #f1f1f1;margin-bottom: 20px;padding-bottom: 20px;}
+.to-cart-box-left{width: 130px;float: left;margin-right: 20px}
+.to-cart-box-right{width: calc(100% - 150px);float: left}
+.to-cart-box-left img{padding-right: 10px;border-right: 1px solid #ccc;}
+.to-cart-box-right h3{border-bottom: 1px solid #f1f1f1 }
+.to-cart-box-right h3 span{}
+.remove-quantity a{color: red}
+.to-cart-box-li {margin-bottom: 10px;padding-bottom: 10px;border-bottom: 1px solid #f1f1f1;width: 100%;display: table;}
+.order-summary-span li{list-style: none;position: relative;}
+.order-summary-span li.product-img{min-height: 110px;}
+.order-summary-span li span{position: absolute;right: 0px}
+.order-summary-span li span img{widows: 100px;height: 100px;object-fit: cover;}
+.order-summary-span li.total-amount{border-top:1px solid #ccc;padding-top: 5px;margin-top: 5px;font-size: 20px;font-weight: bold;}
+.to-cart-box-li:last-child{margin-bottom: 0px;padding-bottom: 0px;border: 0px}
+.continue-shopping{background: transparent; color: #000; border: 1px solid #000;}
+.continue-shopping:hover{background-color: #000;color: #fff}
+
+select {
+    display: block;
+    border: 1px solid #f3f3f3;
+    display: block;
+    width: 100%;
+    height: 2.875rem;
+    padding: 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #495057;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
